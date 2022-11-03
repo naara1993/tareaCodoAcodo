@@ -52,7 +52,8 @@ function validarCampos(event){
   }
   
   if(correo==null || correo=="" ||  (!(regOficial.test(correo)))){
-    event.target.setCustomValidity('Verifique los datos ingresados, debe ingresar example@gmail.com');
+  //  event.target.setCustomValidity('Verifique los datos ingresados, debe ingresar example@gmail.com');
+  alert("Verifique los datos ingresados en el email, debe ingresar example@gmail.com")
     return validar=false;
   }
   if(cantidadTicket <=0){
