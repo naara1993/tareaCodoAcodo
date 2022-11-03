@@ -1,7 +1,7 @@
 
 const resumen=document.getElementById('resumen');
 const costoTicket=200;
-let arrayDescuento={Estudiante:80,Trainee:50,Junior:15}
+let arrayDescuento={Estudiante:80,Trainee:50,Junior:15,SinCategoria:0}
 let validar=false;
 resumen.addEventListener('click',function(event){
 let cantidadTicket=0;
@@ -16,7 +16,10 @@ validarCampos();
       costoFinal=((costoTicket - (costoTicket*arrayDescuento.Estudiante/100))*cantidadTicket);
       }else if(categoria.value==='Trainee'){
         costoFinal=((costoTicket- (costoTicket*arrayDescuento.Trainee/100))*cantidadTicket);
-      }else{
+      }else if(categoria.value==='SinCategoria'){
+        costoFinal=0;
+      }
+      else{
         costoFinal=((costoTicket - (costoTicket*arrayDescuento.Junior/100))*cantidadTicket);
       }
   }else{
@@ -31,6 +34,8 @@ validarCampos();
 
 
 function validarCampos(){
+
+   var regOficial =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
   let cantidadTicket=0;
   let cantidad=document.getElementById('cantidad');
   cantidadTicket=cantidad.value;
@@ -45,7 +50,8 @@ function validarCampos(){
     alert("Debe completar el apellido")
     return validar=false;
   }
-  if(correo==null || correo==""){
+
+  if(correo==null || correo=="" ||  (!(regOficial.test(correo)))){
     alert("Debe completar el correo")
     return validar=false;
   }
