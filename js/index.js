@@ -33,7 +33,7 @@ validarCampos();
 
 
 
-function validarCampos(){
+function validarCampos(event){
 
    var regOficial =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
   let cantidadTicket=0;
@@ -50,9 +50,9 @@ function validarCampos(){
     alert("Debe completar el apellido")
     return validar=false;
   }
-
+  
   if(correo==null || correo=="" ||  (!(regOficial.test(correo)))){
-    alert("Debe completar el correo")
+    event.target.setCustomValidity('Verifique los datos ingresados, debe ingresar example@gmail.com');
     return validar=false;
   }
   if(cantidadTicket <=0){

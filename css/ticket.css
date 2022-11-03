@@ -24,9 +24,9 @@
     width:60% !important;
 }
 
-input[type="text"]:invalid,input[type="number"]:invalid,input[type="email"]:invalid,select:invalid{
+input[type="email"]:invalid,input[type="text"]:invalid,input[type="number"]:invalid,select:invalid{
     border-color:red;
 }
-input[type="text"]:valid,input[type="number"]:valid,select:valid,input[type="email"]:valid{
+input[type="email"]:valid,input[type="text"]:valid,input[type="number"]:valid,select:valid{
     border-color:green;
 }
